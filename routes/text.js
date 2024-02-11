@@ -10,16 +10,15 @@ const MODEL = 'gpt-3.5-turbo';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-const outputSpec = `
-type EventDetails = {
-  title: string;
-  startTime: Date;
-  endTime: Date;
-  location?: string;
-  description?: string;
-  guests?: string[]; // Array of guest email addresses
-  recurrence?: string; // RFC 5545 recurrence rule
-};`;
+const outputSpec = `{
+  title: "Team Meeting",
+  startTime: "2024-02-11T09:00:00",
+  endTime: "2024-02-11T10:00:00",
+  location: "Conference Room 2A",
+  description: "Weekly team meeting to discuss project updates.",
+  guests: ["john@example.com", "sarah@example.com", "alex@example.com"],
+  recurrence: "RRULE:FREQ=WEEKLY;BYDAY=MO;WKST=SU"
+}`;
 
 function createGoogleCalendarUrl(options) {
   const {
