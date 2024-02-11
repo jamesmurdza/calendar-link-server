@@ -8,7 +8,7 @@ import { createGoogleCalendarUrl, createAppleCalendarUrl, createOutlookCalendarU
 // See documentation: https://platform.openai.com/docs/api-reference/chat/create
 
 // The following settings are used:
-const MODEL = 'gpt-3.5-turbo';
+const MODEL = 'gpt-3.5-turbo-0125';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
@@ -30,10 +30,10 @@ export default async function textEndpoint(req, res) {
       messages: [
         {
           role: 'user',
-          content: `${prompt}\n\nGiven the above calendar details, output a JSON object in the format:\n\n${outputSpec}`,
+          content: `${prompt}\n\nGiven the above calendar details, output a JSON object in the format:\n\n${outputSpec}\n\nAlways include a description.`,
         },
       ],
-      //response_format: "json",
+      response_format: { type: "json_object" },
     });
     // Parse output as JSON
     const output = JSON.parse(completion.choices[0].message.content);
