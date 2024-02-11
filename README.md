@@ -18,13 +18,6 @@ You will then have access to a number of endpoints:
 **Text generation endpoint:**
 
 ```bash
-% curl "http://localhost:3000/api/generate-text?prompt=hello"
+% curl "http://localhost:3000/api/generate-link?prompt=panda+pizza+party+at+midnight"
 {"text":"Hi there! How can I assist you today?"}
-```
-
-**Image generation endpoint:**
-
-```bash
-% curl "http://localhost:3000/api/generate-image?prompt=hedgehog"
-{"image":"https://oaidalleapiprodscus.blob.core.windows.net/private/..."}
 ```
