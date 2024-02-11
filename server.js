@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 // Text generation endpoint
-// /api/generate-link?text=birthday+party+at+10am
+// /api/generate-link?prompt=birthday+party+at+10am
 app.get('/api/generate-link', textEndpoint);
 
 app.listen(port, () => {
